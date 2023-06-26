@@ -3,18 +3,7 @@ const start = document.querySelector('.start');
 const pause = document.querySelector('.pause');
 const reset = document.querySelector('.reset');
 let seconds = 0;  
-
-start.addEventListener('click', function (event) {
-  startClock();
-});
-
-pause.addEventListener('click', function (event) {
-  alert("pause");
-});
-
-reset.addEventListener('click', function (event) {
-  alert("reset");
-});
+let timer;
 
 function createNewTimeSeconds(seconds) {
   const date = new Date(seconds * 1000 );
@@ -25,8 +14,21 @@ function createNewTimeSeconds(seconds) {
 }
 
 function startClock() {
-  return  setInterval(() => {
+  timer = setInterval(() => {
     seconds++;
     clock.innerHTML = createNewTimeSeconds(seconds);
   }, 1000);
 }
+
+start.addEventListener('click', function (event) {
+  startClock();
+});
+
+pause.addEventListener('click', function (event) {
+  clearInterval(timer);
+});
+
+reset.addEventListener('click', function (event) {
+  clearInterval(timer);
+  clock.innerHTML = '00:00:00';
+});
