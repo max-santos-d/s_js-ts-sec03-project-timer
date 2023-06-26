@@ -21,6 +21,7 @@ function startClock() {
 }
 
 start.addEventListener('click', function (event) {
+  clearInterval(timer);
   startClock();
 });
 
@@ -31,4 +32,5 @@ pause.addEventListener('click', function (event) {
 reset.addEventListener('click', function (event) {
   clearInterval(timer);
   clock.innerHTML = '00:00:00';
+  seconds = 0;
 });
