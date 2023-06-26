@@ -21,15 +21,18 @@ function startClock() {
 }
 
 start.addEventListener('click', function (event) {
+  clock.classList.remove('paused');
   clearInterval(timer);
   startClock();
 });
 
 pause.addEventListener('click', function (event) {
+  if(seconds > 0) clock.classList.add('paused');
   clearInterval(timer);
 });
 
 reset.addEventListener('click', function (event) {
+  clock.classList.remove('paused');
   clearInterval(timer);
   clock.innerHTML = '00:00:00';
   seconds = 0;

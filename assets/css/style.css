@@ -47,3 +47,7 @@ button{
 button:hover{
   background: var(--primary-color);
 }
+
+.paused{
+  color: red;
+}
